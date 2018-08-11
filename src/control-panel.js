@@ -12,10 +12,10 @@ export default class ControlPanel extends PureComponent {
     //     const prefix = require('superagent-prefix')('/static');
     // console.log("hello there");
         request
-        .get('http://api.translink.ca/rttiapi/v1/buses?apikey=fH8nhLCTC142J3YXmtLC ')
+        .get('https://api.translink.ca/rttiapi/v1/buses?apikey=fH8nhLCTC142J3YXmtLC ')
         // .use(prefix)
         // .use(nocache)
-        .set('Access-Control-Allow-Origin', '*')
+        // .set('Access-Control-Allow-Origin', '*')
         .end((err, res) => {
             console.log(res);
         });
