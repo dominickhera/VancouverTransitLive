@@ -15,6 +15,7 @@ export default class ControlPanel extends PureComponent {
         .get('https://api.translink.ca/rttiapi/v1/buses?apikey=fH8nhLCTC142J3YXmtLC ')
         // .use(prefix)
         // .use(nocache)
+        .set('Access-Control-Request-Headers', '*')
         .set('Access-Control-Allow-Origin', '*')
         .end((err, res) => {
             console.log(res);
@@ -32,7 +33,7 @@ export default class ControlPanel extends PureComponent {
         <h3>Vancouver Live Public Transit Feed</h3>
         <p>Spruce Work Sample by Dominick Hera</p>
         <div className="source-link">
-          <a href="https://github.com/uber/react-map-gl/tree/3.2-release/examples/geojson-animation"
+          <a href="https://github.com/dominickhera/VancouverTransitLive"
             target="_new">
             View Source Code ↗
           </a>
