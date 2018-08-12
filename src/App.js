@@ -103,7 +103,7 @@ export default class App extends Component {
   render() {
 
     const {viewport, mapStyle} = this.state;
-
+    const {bus} = (JSON.parse(localStorage.getItem("busData")));
     return (
       <MapGL
         {...viewport}
@@ -111,7 +111,7 @@ export default class App extends Component {
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
         <style>{MARKER_STYLE}</style>
-        { (JSON.parse(localStorage.getItem("busData"))).map(this._renderMarker) }
+        { bus.map(this._renderMarker) }
         {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
         {/* {this._renderBusInfoPopUp()} */}
         
