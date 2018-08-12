@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MapGL, {Marker} from 'react-map-gl';
+import MapGL, { Marker } from 'react-map-gl';
 import {render} from 'react-dom';
 
 import logo from './logo.svg';
@@ -96,11 +96,11 @@ export default class App extends Component {
     console.log(coordinates);
     console.log(i);
     console.log("please help");
-    // return (
-    //   <Marker longitude={coordinates[0]} latitude={coordinates[1]} >
-    //      <div className="bus"><span>{name}</span></div>
-    //    </Marker>
-    //  );
+    return (
+      <Marker key = {i} longitude={coordinates[0]} latitude={coordinates[1]} >
+    {/* //      <div className="bus"><span>{name}</span></div> */}
+       </Marker>
+     );
   }
 
   _onViewportChange = viewport => this.setState({viewport});
