@@ -64,7 +64,7 @@ export default class ControlPanel extends PureComponent {
         .end((err, res) => {
             console.log(res.text);
             // this._xmlToJson(res.text);
-            console.log("update19");
+            console.log("update20");
             var parser = new DOMParser();
             var parsedObj = parser.parseFromString(res.text, "text/xml");
             // var jsonInstance = new X2JS();
@@ -74,11 +74,30 @@ export default class ControlPanel extends PureComponent {
             var busCount = parseInt(parsedObj.getElementsByTagName("Bus").length, 10);
             // console.log(parsedObj.getElementsByTagName("Bus")[0].childNodes[6].textContent);
            console.log("bus count is " + busCount);
+           var busData = {};
+           var busInfo = [];
+          //  var busLattitudeArray = [];
+          //  var busLongitudeArray = [];
+           busData.busInfo = busInfo;
+          //  busData.busLattitudeArray = busLattitudeArray;
+          //  busData.busLongitudeArray = busLongitudeArray;
+
            var i;
             for(i = 0; i < busCount; i++) {
               // console.log(i);
-              console.log("item " + i + " : " + parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent);
+              var busNumber = parsedObj.getElementsByTagName("Bus")[i].childNodes[0].textContent;
+              var busLattitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent;
+              var busLongitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[7].textContent;
+              var detailedBusInfo = {
+                "busNumber": busNumber,
+                "lattitude": busLattitude,
+                "longitude": busLongitude
+              }
+              busData.busInfo.push(detailedBusInfo);
+              // console.log("item " + i + " : " + parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent);
             }
+
+            console.log(JSON.stringify(busData));
 
         });
   }
