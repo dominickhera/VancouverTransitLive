@@ -74,7 +74,7 @@ export default class ControlPanel extends PureComponent {
             var busCount = parseInt(parsedObj.getElementsByTagName("Bus").length, 10);
             // console.log(parsedObj.getElementsByTagName("Bus").length);
            console.log("bus count is " + busCount);
-            for(i=0; i < busCount; i++) {
+            for(i=0; i < 10; i++) {
               console.log("item " + i);
               // + " : " + parsedObj.getElementById("Bus")[i]);
             }
