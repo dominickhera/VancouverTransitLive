@@ -99,7 +99,7 @@ export default class App extends Component {
     // console.log(i);
     // console.log("please help");
     return (
-      <Marker key = {i} longitude={50} latitude={-123.11390} >
+      <Marker key = {i} longitude={50} latitude={-123} >
       {/* <Marker key = {i} longitude={50} latitude={-50} > */}
           <div className="bus"><span>{name}</span></div>
           {/* <div>test pls work </div> */}
