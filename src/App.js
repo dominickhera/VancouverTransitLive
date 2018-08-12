@@ -93,13 +93,13 @@ export default class App extends Component {
     const {name, coordinates} = bus;
     console.log(bus);
     // console.log(name);
-    console.log(typeof(coordinates[0]));
-    console.log(typeof(50));
+    // console.log(typeof(coordinates[0]));
+    // console.log(typeof(50));
     // console.log(coordinates[1]);
     // console.log(i);
     // console.log("please help");
     return (
-      <Marker key = {i} longitude={coordinates.latitude} latitude={coordinates.longitude} >
+      <Marker key = {i} longitude={(50 + i)} latitude={(-50 + i)} >
       {/* <Marker key = {i} longitude={50} latitude={-50} > */}
           <div className="bus"><span>{name}</span></div>
           {/* <div>test pls work </div> */}
