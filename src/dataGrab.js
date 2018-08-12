@@ -26,12 +26,16 @@ export function grabTransitData() {
               var busNumber = parsedObj.getElementsByTagName("Bus")[i].childNodes[0].textContent;
               var busLattitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent;
               var busLongitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[7].textContent;
+              var busDestination = parsedObj.getElementsByTagName("Bus")[i].childNodes[4].textContent;
+              var busDirection = parsedObj.getElementsByTagName("Bus")[i].childNodes[3].textContent;
               var busCoordinates = [
                 Number(busLattitude),
                 Number(busLongitude)
               ]
               var detailedBusInfo = {
                 "name": busNumber,
+                "destination": busDestination,
+                "direction": busDirection,
                 "coordinates": busCoordinates
                 // "lattitude": parseFloat(busLattitude),
                 // "longitude": parseFloat(busLongitude)

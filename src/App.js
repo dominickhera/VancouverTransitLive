@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
-
-import logo from './logo.svg';
+import MapGL, {Marker} from 'react-map-gl';
 import './App.css';
 
 
@@ -11,8 +9,6 @@ import {defaultMapStyle, pointLayer} from './map-style.js';
 import {pointOnCircle} from './utils';
 import {grabTransitData} from './dataGrab';
 import {fromJS} from 'immutable';
-import busPinStyle from './busPointStyle';
-import busInfo from './busInfo';
 import MARKER_STYLE from './marker-style';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZG9taW5pY2toZXJhIiwiYSI6ImNqa3B1M3h3bDAzM3kza2p0MGFnYnEycnYifQ.MKWHv7_xn40QRqLHPtn-hA'; // Set your mapbox token here
@@ -90,7 +86,7 @@ export default class App extends Component {
   // }
 
   _renderMarker(bus, i) {
-    const {name, coordinates} = bus;
+    const {name, destination, direction, coordinates} = bus;
     console.log(bus);
     // console.log(name);
     // console.log(typeof(coordinates[0]));
@@ -101,7 +97,7 @@ export default class App extends Component {
     return (
       <Marker key = {i} longitude={coordinates[1]} latitude={coordinates[0]} >
       {/* <Marker key = {i} longitude={50} latitude={-50} > */}
-          <div className="bus"><span>{name}</span></div>
+          <div className="bus"><span>Bus #{name}, Destination: {destination}, Direction: {direction}</span></div>
           {/* <div>test pls work </div> */}
        </Marker>
      );
