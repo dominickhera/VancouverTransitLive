@@ -40,12 +40,12 @@ export default class App extends Component {
     let tempVal = JSON.parse(localStorage.getItem('busData'));
     // console.log(localStorage.getItem('busData'));
     console.log(tempVal);
-    animation = window.requestAnimationFrame(this._animatePoint);
+    // animation = window.requestAnimationFrame(this._animatePoint);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this._resize);
-    window.cancelAnimationFrame(animation);
+    // window.cancelAnimationFrame(animation);
   }
 
   _resize = () => {
@@ -58,10 +58,10 @@ export default class App extends Component {
     });
   };
 
-  _animatePoint = () => {
-    this._updatePointData(pointOnCircle({center: [-123, 49], angle: Date.now() / 1000, radius: 10}));
-    animation = window.requestAnimationFrame(this._animatePoint);
-  }
+  // _animatePoint = () => {
+  //   // this._updatePointData(pointOnCircle({center: [-123, 49], angle: Date.now() / 1000, radius: 10}));
+  //   animation = window.requestAnimationFrame(this._animatePoint);
+  // }
 
   _updatePointData = pointData => {
     let {mapStyle} = this.state;
