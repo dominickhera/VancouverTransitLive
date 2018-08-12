@@ -40,7 +40,7 @@ export default class App extends Component {
     let tempVal = JSON.parse(localStorage.getItem('busData'));
     // console.log(localStorage.getItem('busData'));
     console.log(tempVal);
-    // animation = window.requestAnimationFrame(this._animatePoint);
+    animation = window.requestAnimationFrame(this._animatePoint);
   }
 
   componentWillUnmount() {
