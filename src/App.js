@@ -13,6 +13,7 @@ import {grabTransitData} from './dataGrab';
 import {fromJS} from 'immutable';
 import busPinStyle from './busPointStyle';
 import busInfo from './busInfo';
+import BusInfo from './busInfo';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZG9taW5pY2toZXJhIiwiYSI6ImNqa3B1M3h3bDAzM3kza2p0MGFnYnEycnYifQ.MKWHv7_xn40QRqLHPtn-hA'; // Set your mapbox token here
 
@@ -78,15 +79,29 @@ export default class App extends Component {
     this.setState({mapStyle});
   }
 
-  // _setBusPoint = (busData, index) => {
-  //   return (
-  //     <Marker key={`marker-${index}`}
-  //       longitude={busData.longitude}
-  //       latitude={busData.latitude} >
-  //       <busPinStyle size={20} onClick={() => this.setState({popupInfo: busData})} />
-  //     </Marker>
-  //   );
-  // }
+  _setBusPoint = (busData, index) => {
+    return (
+      <Marker key={`marker-${index}`}
+        longitude={busData.longitude}
+        latitude={busData.latitude} >
+        <busPinStyle size={20} onClick={() => this.setState({popupInfo: busData})} />
+      </Marker>
+    );
+  }
+
+  _renderBusInfoPopUp() {
+    const {popupInfo} = this.state;
+
+    return popupInfo && (
+      <Popup tipSize={5}
+        anchor="top"
+        longitude={popupInfo.longitude}
+        latitude={popupInfo.latitude}
+        onClose={() => this.setState({popupInfo: null})} >
+        <BusInfo info={popupInfo} />
+      </Popup>
+    );
+  }
 
   _onViewportChange = viewport => this.setState({viewport});
 
@@ -100,7 +115,8 @@ export default class App extends Component {
         mapStyle={mapStyle}
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
-        {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
+        {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) }
+        {this._renderBusInfoPopUp()}
         <ControlPanel containerComponent={this.props.containerComponent} />
       </MapGL>
     );
