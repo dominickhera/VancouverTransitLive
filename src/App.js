@@ -9,6 +9,7 @@ import './App.css';
 import ControlPanel from './control-panel';
 import {defaultMapStyle, pointLayer} from './map-style.js';
 import {pointOnCircle} from './utils';
+import {grabTransitData} from './dataGrab';
 import {fromJS} from 'immutable';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZG9taW5pY2toZXJhIiwiYSI6ImNqa3B1M3h3bDAzM3kza2p0MGFnYnEycnYifQ.MKWHv7_xn40QRqLHPtn-hA'; // Set your mapbox token here
@@ -33,7 +34,9 @@ export default class App extends Component {
   componentDidMount() {
     window.addEventListener('resize', this._resize);
     this._resize();
-    // animation = window.requestAnimationFrame(this._animatePoint);
+    this.grabTransitData();
+    console.log(localStorage.getItem('busData'));
+    animation = window.requestAnimationFrame(this._animatePoint);
   }
 
   componentWillUnmount() {
@@ -51,25 +54,25 @@ export default class App extends Component {
     });
   };
 
-  // _animatePoint = () => {
-  //   this._updatePointData(pointOnCircle({center: [-123, 49], angle: Date.now() / 1000, radius: 10}));
-  //   animation = window.requestAnimationFrame(this._animatePoint);
-  // }
+  _animatePoint = () => {
+    this._updatePointData(pointOnCircle({center: [-123, 49], angle: Date.now() / 1000, radius: 10}));
+    animation = window.requestAnimationFrame(this._animatePoint);
+  }
 
-  // _updatePointData = pointData => {
-  //   let {mapStyle} = this.state;
-  //   if (!mapStyle.hasIn(['source', 'point'])) {
-  //     mapStyle = mapStyle
-  //       // Add geojson source to map
-  //       .setIn(['sources', 'point'], fromJS({type: 'geojson'}))
-  //       // Add point layer to map
-  //       .set('layers', mapStyle.get('layers').push(pointLayer));
-  //   }
-  //   // Update data source
-  //   mapStyle = mapStyle.setIn(['sources', 'point', 'data'], pointData);
+  _updatePointData = pointData => {
+    let {mapStyle} = this.state;
+    if (!mapStyle.hasIn(['source', 'point'])) {
+      mapStyle = mapStyle
+        // Add geojson source to map
+        .setIn(['sources', 'point'], fromJS({type: 'geojson'}))
+        // Add point layer to map
+        .set('layers', mapStyle.get('layers').push(pointLayer));
+    }
+    // Update data source
+    mapStyle = mapStyle.setIn(['sources', 'point', 'data'], pointData);
 
-  //   this.setState({mapStyle});
-  // }
+    this.setState({mapStyle});
+  }
 
   _onViewportChange = viewport => this.setState({viewport});
 

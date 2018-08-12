@@ -1,110 +1,59 @@
 
 import React, {PureComponent} from 'react';
-import X2JS from 'x2js';
 const request = require('superagent');
-// const convertXML = require('x2js');
-// const nocache = require('superagent-no-cache');
-// const prefix = require('superagent-prefix')('/static');
 const defaultContainer =  ({children}) => <div className="control-panel">{children}</div>;
 
 export default class ControlPanel extends PureComponent {
-  // _xmlToJson = (xml) => {
-    // console.log("this shit was not supposed to happen");
-    // console.log(xml);
-  //   // Create the return object
-  //   var obj = {};
-  
-  //   if (xml.nodeType == 1) { // element
-  //     // do attributes
-  //     if (xml.attributes.length > 0) {
-  //     obj["@attributes"] = {};
-  //       for (var j = 0; j < xml.attributes.length; j++) {
-  //         var attribute = xml.attributes.item(j);
-  //         obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
-  //       }
-  //     }
-  //   } else if (xml.nodeType == 3) { // text
-  //     obj = xml.nodeValue;
-  //   }
-  
-  //   // do children
-  //   if (xml.hasChildNodes()) {
-  //     for(var i = 0; i < xml.childNodes.length; i++) {
-  //       var item = xml.childNodes.item(i);
-  //       var nodeName = item.nodeName;
-  //       if (typeof(obj[nodeName]) == "undefined") {
-  //         obj[nodeName] = xmlToJson(item);
-  //       } else {
-  //         if (typeof(obj[nodeName].push) == "undefined") {
-  //           var old = obj[nodeName];
-  //           obj[nodeName] = [];
-  //           obj[nodeName].push(old);
-  //         }
-  //         obj[nodeName].push(xmlToJson(item));
-  //       }
-  //     }
-  //   }
-  //   return obj;
+
+  // _grabTransitData = () => {
+  //   // const request = require('superagent');
+  //   //     const nocache = require('superagent-no-cache');
+  //   //     const prefix = require('superagent-prefix')('/static');
+  //   // console.log("hello there");
+  //       request
+  //       .get('https://api.translink.ca/rttiapi/v1/buses?apikey=fH8nhLCTC142J3YXmtLC ')
+  //       // .use(prefix)
+  //       // .use(nocache)
+  //       .set('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT')
+  //       // .set('Access-Control-Request-Headers', 'X-Requested-With, Content-Type, Authorization, Origin, Accept')
+  //       .set('Access-Control-Allow-Origin', '*')
+  //       .set('Connetion', 'close')
+  //       .set('Content-Type', 'application/xml')
+  //       .end((err, res) => {
+  //           console.log(res.text);
+  //           // this._xmlToJson(res.text);
+  //           console.log("update21");
+  //           var parser = new DOMParser();
+  //           var parsedObj = parser.parseFromString(res.text, "text/xml");
+  //           var busCount = parseInt(parsedObj.getElementsByTagName("Bus").length, 10);
+  //          var busData = {};
+  //          var busInfo = [];
+  //          busData.busInfo = busInfo;
+
+  //          var i;
+  //           for(i = 0; i < busCount; i++) {
+  //             // console.log(i);
+  //             var busNumber = parsedObj.getElementsByTagName("Bus")[i].childNodes[0].textContent;
+  //             var busLattitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent;
+  //             var busLongitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[7].textContent;
+  //             var detailedBusInfo = {
+  //               "busNumber": busNumber,
+  //               "lattitude": busLattitude,
+  //               "longitude": busLongitude
+  //             }
+  //             busData.busInfo.push(detailedBusInfo);
+  //             // console.log("item " + i + " : " + parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent);
+  //           }
+
+  //           // console.log(JSON.stringify(busData));
+  //           localStorage.setItem("busData", JSON.stringify(busData));
+
+  //       });
   // }
-
-  _grabTransitData = () => {
-    // const request = require('superagent');
-    //     const nocache = require('superagent-no-cache');
-    //     const prefix = require('superagent-prefix')('/static');
-    // console.log("hello there");
-        request
-        .get('https://api.translink.ca/rttiapi/v1/buses?apikey=fH8nhLCTC142J3YXmtLC ')
-        // .use(prefix)
-        // .use(nocache)
-        .set('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT')
-        // .set('Access-Control-Request-Headers', 'X-Requested-With, Content-Type, Authorization, Origin, Accept')
-        .set('Access-Control-Allow-Origin', '*')
-        .set('Connetion', 'close')
-        .set('Content-Type', 'application/xml')
-        .end((err, res) => {
-            console.log(res.text);
-            // this._xmlToJson(res.text);
-            console.log("update20");
-            var parser = new DOMParser();
-            var parsedObj = parser.parseFromString(res.text, "text/xml");
-            // var jsonInstance = new X2JS();
-            // var xmlText = res.text;
-            // var jsonObj = jsonInstance.xml_str2json(xmlText);
-            console.log(parsedObj);
-            var busCount = parseInt(parsedObj.getElementsByTagName("Bus").length, 10);
-            // console.log(parsedObj.getElementsByTagName("Bus")[0].childNodes[6].textContent);
-           console.log("bus count is " + busCount);
-           var busData = {};
-           var busInfo = [];
-          //  var busLattitudeArray = [];
-          //  var busLongitudeArray = [];
-           busData.busInfo = busInfo;
-          //  busData.busLattitudeArray = busLattitudeArray;
-          //  busData.busLongitudeArray = busLongitudeArray;
-
-           var i;
-            for(i = 0; i < busCount; i++) {
-              // console.log(i);
-              var busNumber = parsedObj.getElementsByTagName("Bus")[i].childNodes[0].textContent;
-              var busLattitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent;
-              var busLongitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[7].textContent;
-              var detailedBusInfo = {
-                "busNumber": busNumber,
-                "lattitude": busLattitude,
-                "longitude": busLongitude
-              }
-              busData.busInfo.push(detailedBusInfo);
-              // console.log("item " + i + " : " + parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent);
-            }
-
-            console.log(JSON.stringify(busData));
-
-        });
-  }
-  componentDidMount() {
-    this._grabTransitData();
+  // componentDidMount() {
+  //   // this._grabTransitData();
     
-  }
+  // }
 
   render() {
     const Container = this.props.containerComponent || defaultContainer;
