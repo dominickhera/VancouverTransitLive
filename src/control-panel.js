@@ -61,6 +61,7 @@ export default class ControlPanel extends PureComponent {
         .end((err, res) => {
             console.log(res.text);
             var testThing = this.xmlToJson(res.text);
+            console.log("hello there");
             console.log(testThing);
         });
   }
