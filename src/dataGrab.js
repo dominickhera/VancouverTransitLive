@@ -31,7 +31,7 @@ export function grabTransitData() {
                 parseFloat(busLongitude)
               ]
               var detailedBusInfo = {
-                "busNumber": busNumber,
+                "name": busNumber,
                 "coordinates": busCoordinates
                 // "lattitude": parseFloat(busLattitude),
                 // "longitude": parseFloat(busLongitude)

@@ -90,10 +90,10 @@ export default class App extends Component {
   }
 
   _renderMarker(bus, i) {
-    const {busNumber, coordinates} = bus;
+    const {name, coordinates} = bus;
     return (
-      <Marker busNumber={i} longitude={coordinates[0]} latitude={coordinates[1]} >
-        <div className="busNumber"><span>{busNumber}</span></div>
+      <Marker key={i} longitude={coordinates[0]} latitude={coordinates[1]} >
+        <div className="bus"><span>{name}</span></div>
       </Marker>
     );
   }
