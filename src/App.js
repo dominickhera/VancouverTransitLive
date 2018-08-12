@@ -130,7 +130,7 @@ export default class App extends Component {
         mapStyle={mapStyle}
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
-        {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) }
+        {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
         {/* {this._renderBusInfoPopUp()} */}
         <ControlPanel containerComponent={this.props.containerComponent} />
       </MapGL>
