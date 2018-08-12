@@ -21,7 +21,7 @@ export default class ControlPanel extends PureComponent {
         .set('Connetion', 'close')
         .set('Content-Type', 'application/xml')
         .end((err, res) => {
-            console.log(res);
+            console.log(res.text);
         });
   }
   componentDidMount() {
