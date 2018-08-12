@@ -91,11 +91,15 @@ export default class App extends Component {
 
   _renderMarker(bus, i) {
     const {name, coordinates} = bus;
-    return (
-      <Marker key={i} longitude={coordinates[0]} latitude={coordinates[1]} >
-        <div className="bus"><span>{name}</span></div>
-      </Marker>
-    );
+    console.log(bus);
+    console.log(name);
+    console.log(coordinates);
+    console.log("please help");
+    // return (
+    //   <Marker key={i} longitude={coordinates[0]} latitude={coordinates[1]} >
+    //     <div className="bus"><span>{name}</span></div>
+    //   </Marker>
+    // );
   }
 
   _onViewportChange = viewport => this.setState({viewport});
