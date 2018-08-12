@@ -94,12 +94,13 @@ export default class App extends Component {
     console.log(bus);
     console.log(name);
     console.log(coordinates);
+    console.log(i);
     console.log("please help");
-    // return (
-    //   <Marker key={i} longitude={coordinates[0]} latitude={coordinates[1]} >
-    //     <div className="bus"><span>{name}</span></div>
-    //   </Marker>
-    // );
+    return (
+      <Marker key={i} longitude={coordinates[0]} latitude={coordinates[1]} >
+         <div className="bus"><span>{name}</span></div>
+       </Marker>
+     );
   }
 
   _onViewportChange = viewport => this.setState({viewport});
