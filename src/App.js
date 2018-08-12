@@ -34,7 +34,7 @@ export default class App extends Component {
   componentDidMount() {
     window.addEventListener('resize', this._resize);
     this._resize();
-    this.grabTransitData();
+    grabTransitData();
     console.log(localStorage.getItem('busData'));
     animation = window.requestAnimationFrame(this._animatePoint);
   }
