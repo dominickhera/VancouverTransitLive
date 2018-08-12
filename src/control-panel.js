@@ -1,7 +1,7 @@
 
 import React, {PureComponent} from 'react';
 const request = require('superagent');
-const convertXML = require('x2js');
+// const convertXML = require('x2js');
 // const nocache = require('superagent-no-cache');
 // const prefix = require('superagent-prefix')('/static');
 const defaultContainer =  ({children}) => <div className="control-panel">{children}</div>;
@@ -63,8 +63,8 @@ export default class ControlPanel extends PureComponent {
         .end((err, res) => {
             // console.log(res.text);
             // this._xmlToJson(res.text);
-            var jsonInstance = new convertXML();
-            var xmlText = res.text;
+            var jsonInstance = new X2JS();
+            var xmlText = res;
             var jsonObj = jsonInstance.xml_str2json(xmlText);
             console.log(jsonObj);
 
