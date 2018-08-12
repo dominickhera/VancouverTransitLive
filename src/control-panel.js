@@ -63,7 +63,8 @@ export default class ControlPanel extends PureComponent {
             // console.log(res.text);
             // this._xmlToJson(res.text);
             var jsonInstance = new X2JS();
-            var jsonObj = jsonInstance.xml_str2json(res.text);
+            var xmlText = res.text;
+            var jsonObj = jsonInstance.xml_str2json(xmlText);
             console.log(jsonObj);
 
         });
