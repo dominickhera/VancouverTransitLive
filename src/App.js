@@ -78,7 +78,7 @@ export default class App extends Component {
     this.setState({mapStyle});
   }
 
-  _setBusPoint = (busData) => {
+  _setBusPoint = (busData, index) => {
     return (
       <Marker key={`marker-${index}`}
         longitude={busData.longitude}
