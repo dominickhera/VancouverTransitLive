@@ -70,10 +70,10 @@ export default class ControlPanel extends PureComponent {
             // var jsonInstance = new X2JS();
             // var xmlText = res.text;
             // var jsonObj = jsonInstance.xml_str2json(xmlText);
-            // console.log(parsedObj);
-            for(i=0; i < parsedObj.childElementCount; i++) {
-              console.log("item " + i);
-            }
+            console.log(parsedObj.getElementsByTagName("Bus")[0].childNodes[0].nodeValue);
+            // for(i=0; i < parsedObj.childElementCount; i++) {
+              // console.log("item " + i);
+            // }
 
         });
   }
