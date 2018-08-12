@@ -78,6 +78,22 @@ export default class App extends Component {
     this.setState({mapStyle});
   }
 
+  _setBusPoint = pointData => {
+    let {mapStyle} = this.state;
+    if (!mapStyle.hasIn(['source', 'point'])) {
+      mapStyle = mapStyle
+        // Add geojson source to map
+        .setIn(['sources', 'point'], fromJS({type: 'geojson'}))
+        // Add point layer to map
+        .set('layers', mapStyle.get('layers').push(pointLayer));
+    }
+    // Update data source
+    mapStyle = mapStyle.setIn(['sources', 'point', 'data'], pointData);
+
+    this.setState({mapStyle});
+    
+  }
+
   // _setBusPoint = (busData, index) => {
   //   return (
   //     <Marker key={`marker-${index}`}
@@ -114,7 +130,7 @@ export default class App extends Component {
         mapStyle={mapStyle}
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
-        {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
+        {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) }
         {/* {this._renderBusInfoPopUp()} */}
         <ControlPanel containerComponent={this.props.containerComponent} />
       </MapGL>
