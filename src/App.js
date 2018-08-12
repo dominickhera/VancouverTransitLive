@@ -100,8 +100,8 @@ export default class App extends Component {
     return (
       // <Marker key = {i} longitude={coordinates[0]} latitude={coordinates[1]} >
       <Marker key = {i} longitude={50} latitude={-50} >
-          {/* <div className="bus"><span>{name}</span></div> */}
-          <div>test pls work </div>
+          <div className="bus"><span>{name}</span></div>
+          {/* <div>test pls work </div> */}
        </Marker>
      );
   }
