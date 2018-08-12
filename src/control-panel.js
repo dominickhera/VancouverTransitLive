@@ -6,9 +6,9 @@ const request = require('superagent');
 const defaultContainer =  ({children}) => <div className="control-panel">{children}</div>;
 
 export default class ControlPanel extends PureComponent {
-  _xmlToJson = (xml) => {
-    console.log("this shit was entered");
-    console.log(xml);
+  // _xmlToJson = (xml) => {
+    // console.log("this shit was not supposed to happen");
+    // console.log(xml);
   //   // Create the return object
   //   var obj = {};
   
@@ -43,7 +43,7 @@ export default class ControlPanel extends PureComponent {
   //     }
   //   }
   //   return obj;
-  }
+  // }
 
   _grabTransitData = () => {
     // const request = require('superagent');
@@ -61,7 +61,10 @@ export default class ControlPanel extends PureComponent {
         .set('Content-Type', 'application/xml')
         .end((err, res) => {
             // console.log(res.text);
-            this._xmlToJson(res.text);
+            // this._xmlToJson(res.text);
+            var jsonInstance = new X2JS();
+            var jsonObj = jsonInstance.xml_str2json(res.text);
+            console.log(jsonObj);
 
         });
   }
