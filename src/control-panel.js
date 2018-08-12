@@ -15,8 +15,10 @@ export default class ControlPanel extends PureComponent {
         .get('https://api.translink.ca/rttiapi/v1/buses?apikey=fH8nhLCTC142J3YXmtLC ')
         // .use(prefix)
         // .use(nocache)
-        // .set('Access-Control-Request-Headers', '*')
+        .set('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT')
+        .set('Access-Control-Request-Headers', 'X-Requested-With, Content-Type, Authorization, Origin, Accept')
         .set('Access-Control-Allow-Origin', '*')
+        .set('Content-Type', 'application/xml')
         .end((err, res) => {
             console.log(res);
         });
