@@ -58,10 +58,10 @@ export default class App extends Component {
     });
   };
 
-  // _animatePoint = () => {
-  //   this._updatePointData(pointOnCircle({center: [-123, 49], angle: Date.now() / 1000, radius: 10}));
+  _animatePoint = () => {
+    this._updatePointData(pointOnCircle({center: [-123, 49], angle: Date.now() / 1000, radius: 10}));
   //   animation = window.requestAnimationFrame(this._animatePoint);
-  // }
+  }
 
   _updatePointData = pointData => {
     let {mapStyle} = this.state;
