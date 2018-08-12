@@ -13,6 +13,7 @@ import {grabTransitData} from './dataGrab';
 import {fromJS} from 'immutable';
 import busPinStyle from './busPointStyle';
 import busInfo from './busInfo';
+import MARKER_STYLE from './marker-style';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZG9taW5pY2toZXJhIiwiYSI6ImNqa3B1M3h3bDAzM3kza2p0MGFnYnEycnYifQ.MKWHv7_xn40QRqLHPtn-hA'; // Set your mapbox token here
 
@@ -88,54 +89,14 @@ export default class App extends Component {
     this.setState({mapStyle});
   }
 
-  // _renderBusMarker = (bus, index) => {
-  //   return (
-  //     <Marker key={`marker-${index}`}
-  //       longitude={bus.longitude}
-  //       latitude={bus.latitude} >
-  //       <busPinStyle size={20} onClick={() => this.setState({popupInfo: bus})} />
-  //     </Marker>
-  //   );
-  // }
-
-
-  // _setBusPoint = (busData, index) => {
-  //   return (
-  //     <Marker key={`marker-${index}`}
-  //       longitude={busData.longitude}
-  //       latitude={busData.latitude} >
-  //       <busPinStyle size={20} onClick={() => this.setState({popupInfo: busData})} />
-  //     </Marker>
-  //   );
-  // }
-
-  // _renderBusInfoPopUp() {
-  //   const {popupInfo} = this.state;
-
-  //   return popupInfo && (
-  //     <Popup tipSize={5}
-  //       anchor="top"
-  //       longitude={popupInfo.longitude}
-  //       latitude={popupInfo.latitude}
-  //       onClose={() => this.setState({popupInfo: null})} >
-  //       <BusInfo info={popupInfo} />
-  //     </Popup>
-  //   );
-  // }
-
-  // _renderPopup() {
-  //   const {popupInfo} = this.state;
-
-  //   return popupInfo && (
-  //     <Popup tipSize={5}
-  //       anchor="top"
-  //       longitude={popupInfo.longitude}
-  //       latitude={popupInfo.latitude}
-  //       onClose={() => this.setState({popupInfo: null})} >
-  //       <busPinStyle info={popupInfo} />
-  //     </Popup>
-  //   );
-  // }
+  _renderMarker(bus, i) {
+    const {name, coordinates} = bus;
+    return (
+      <Marker key={i} longitude={coordinates[0]} latitude={coordinates[1]} >
+        <div className="busNumber"><span>{name}</span></div>
+      </Marker>
+    );
+  }
 
   _onViewportChange = viewport => this.setState({viewport});
 
@@ -149,6 +110,8 @@ export default class App extends Component {
         mapStyle={mapStyle}
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
+        <style>{MARKER_STYLE}</style>
+        { (JSON.parse(localStorage.getItem("busData"))).map(this._renderMarker) }
         {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
         {/* {this._renderBusInfoPopUp()} */}
         
