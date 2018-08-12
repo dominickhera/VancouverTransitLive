@@ -10,7 +10,7 @@ export default class ControlPanel extends PureComponent {
     return (
       <Container>
         <h3>Vancouver Live Public Transit Feed</h3>
-        <p>Spruce Work Sample by Dominick Hera</p>
+        <p>Created by Dominick Hera</p>
         <div className="source-link">
           <a href="https://github.com/dominickhera/VancouverTransitLive"
             target="_new">
