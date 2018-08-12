@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import MapGL, {Marker} from 'react-map-gl';
+import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
 
 import logo from './logo.svg';
 import './App.css';
@@ -99,7 +99,8 @@ export default class App extends Component {
     console.log("please help");
     return (
       <Marker key = {i} longitude={coordinates[0]} latitude={coordinates[1]} >
-          <div className="bus"><span>{name}</span></div>
+          {/* <div className="bus"><span>{name}</span></div> */}
+          <div>test pls work </div>
        </Marker>
      );
   }
