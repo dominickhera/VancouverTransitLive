@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import MapGL, { Marker } from 'react-map-gl';
+import React, {Component} from 'react';
 import {render} from 'react-dom';
+import MapGL, {Marker} from 'react-map-gl';
 
 import logo from './logo.svg';
 import './App.css';
@@ -72,33 +72,34 @@ export default class App extends Component {
   // _animatePoint = () => {
   //   // this._updatePointData(pointOnCircle({center: [-123, 49], angle: Date.now() / 1000, radius: 10}));
   //   animation = window.requestAnimationFrame(this._animatePoint);
+  // // }
+
+  // _updatePointData = pointData => {
+  //   let {mapStyle} = this.state;
+  //   if (!mapStyle.hasIn(['source', 'point'])) {
+  //     mapStyle = mapStyle
+  //       // Add geojson source to map
+  //       .setIn(['sources', 'point'], fromJS({type: 'geojson'}))
+  //       // Add point layer to map
+  //       .set('layers', mapStyle.get('layers').push(pointLayer));
+  //   }
+  //   // Update data source
+  //   mapStyle = mapStyle.setIn(['sources', 'point', 'data'], pointData);
+
+  //   this.setState({mapStyle});
   // }
-
-  _updatePointData = pointData => {
-    let {mapStyle} = this.state;
-    if (!mapStyle.hasIn(['source', 'point'])) {
-      mapStyle = mapStyle
-        // Add geojson source to map
-        .setIn(['sources', 'point'], fromJS({type: 'geojson'}))
-        // Add point layer to map
-        .set('layers', mapStyle.get('layers').push(pointLayer));
-    }
-    // Update data source
-    mapStyle = mapStyle.setIn(['sources', 'point', 'data'], pointData);
-
-    this.setState({mapStyle});
-  }
 
   _renderMarker(bus, i) {
     const {name, coordinates} = bus;
     console.log(bus);
     console.log(name);
-    console.log(coordinates);
+    console.log(coordinates[0]);
+    console.log(coordinates[1]);
     console.log(i);
     console.log("please help");
     return (
       <Marker key = {i} longitude={coordinates[0]} latitude={coordinates[1]} >
-    {/* //      <div className="bus"><span>{name}</span></div> */}
+          <div className="bus"><span>{name}</span></div>
        </Marker>
      );
   }
@@ -116,7 +117,7 @@ export default class App extends Component {
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
         <style>{MARKER_STYLE}</style>
-        {(JSON.parse(localStorage.getItem("busData")).busInfo).map(this._renderMarker)}
+        { (JSON.parse(localStorage.getItem("busData")).busInfo).map(this._renderMarker) }
         {/* { bus.map(this._renderMarker) } */}
         {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
         {/* {this._renderBusInfoPopUp()} */}
