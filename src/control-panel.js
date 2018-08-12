@@ -16,8 +16,9 @@ export default class ControlPanel extends PureComponent {
         // .use(prefix)
         // .use(nocache)
         .set('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT')
-        .set('Access-Control-Request-Headers', 'X-Requested-With, Content-Type, Authorization, Origin, Accept')
+        // .set('Access-Control-Request-Headers', 'X-Requested-With, Content-Type, Authorization, Origin, Accept')
         .set('Access-Control-Allow-Origin', '*')
+        .set('Connetion', 'close')
         .set('Content-Type', 'application/xml')
         .end((err, res) => {
             console.log(res);
