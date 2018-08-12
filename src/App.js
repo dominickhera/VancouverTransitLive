@@ -92,14 +92,14 @@ export default class App extends Component {
   _renderMarker(bus, i) {
     const {name, coordinates} = bus;
     console.log(bus);
-    // console.log(name);
-    // console.log(coordinates[0]);
-    // console.log(coordinates[1]);
-    // console.log(i);
-    // console.log("please help");
+    console.log(name);
+    console.log(coordinates[0]);
+    console.log(coordinates[1]);
+    console.log(i);
+    console.log("please help");
     return (
       // <Marker key = {i} longitude={coordinates[0]} latitude={coordinates[1]} >
-      <Marker key = {i} longitude={parseFloat(coordinates[0])} latitude={parseFloat(coordinates[1])} >
+      <Marker key = {i} longitude={coordinates[0]} latitude={coordinates[1]} >
           {/* <div className="bus"><span>{name}</span></div> */}
           <div>test pls work </div>
        </Marker>

@@ -27,8 +27,8 @@ export function grabTransitData() {
               var busLattitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent;
               var busLongitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[7].textContent;
               var busCoordinates = [
-                parseFloat(busLattitude),
-                parseFloat(busLongitude)
+                Number(busLattitude),
+                Number(busLongitude)
               ]
               var detailedBusInfo = {
                 "name": busNumber,
