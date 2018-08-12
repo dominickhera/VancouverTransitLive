@@ -46,7 +46,7 @@ export default class App extends Component {
     grabTransitData();
     let tempVal = JSON.parse(localStorage.getItem('busData'));
     // console.log(localStorage.getItem('busData'));
-    console.log(tempVal);
+    // console.log(tempVal);
     // animation = window.requestAnimationFrame(this._animatePoint);
   }
 
@@ -111,7 +111,7 @@ export default class App extends Component {
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
         <style>{MARKER_STYLE}</style>
-        {console.log(JSON.parse(localStorage.getItem("busData")))}
+        {console.log(JSON.parse(localStorage.getItem("busData")).busInfo)}
         {/* { bus.map(this._renderMarker) } */}
         {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
         {/* {this._renderBusInfoPopUp()} */}
