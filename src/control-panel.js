@@ -64,7 +64,7 @@ export default class ControlPanel extends PureComponent {
         .end((err, res) => {
             console.log(res.text);
             // this._xmlToJson(res.text);
-            console.log("update8");
+            console.log("update9");
             var parser = new DOMParser();
             var parsedObj = parser.parseFromString(res.text, "text/xml");
             // var jsonInstance = new X2JS();
@@ -74,9 +74,10 @@ export default class ControlPanel extends PureComponent {
             var busCount = parseInt(parsedObj.getElementsByTagName("Bus").length, 10);
             // console.log(parsedObj.getElementsByTagName("Bus").length);
            console.log("bus count is " + busCount);
-            // for(i=0; i < busCount; i++) {
-              // console.log("item " + i + " : " + parsedObj.getElementById("Bus")[i]);
-            // }
+            for(i=0; i < busCount; i++) {
+              console.log("item " + i);
+              // + " : " + parsedObj.getElementById("Bus")[i]);
+            }
 
         });
   }
