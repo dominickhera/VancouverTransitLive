@@ -6,7 +6,7 @@ export const pointLayer = fromJS({
   source: 'point',
   type: 'circle',
   paint: {
-    'circle-radius': 1,
+    'circle-radius': 10,
     'circle-color': '#007cbf'
   }
 });

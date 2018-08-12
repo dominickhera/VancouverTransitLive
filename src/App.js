@@ -11,6 +11,8 @@ import {defaultMapStyle, pointLayer} from './map-style.js';
 import {pointOnCircle} from './utils';
 import {grabTransitData} from './dataGrab';
 import {fromJS} from 'immutable';
+import busPinStyle from './busPointStyle';
+import busInfo from './busInfo';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZG9taW5pY2toZXJhIiwiYSI6ImNqa3B1M3h3bDAzM3kza2p0MGFnYnEycnYifQ.MKWHv7_xn40QRqLHPtn-hA'; // Set your mapbox token here
 
@@ -76,6 +78,16 @@ export default class App extends Component {
     this.setState({mapStyle});
   }
 
+  _setBusPoint = (busData) => {
+    return (
+      <Marker key={`marker-${index}`}
+        longitude={busData.longitude}
+        latitude={busData.latitude} >
+        <busPinStyle size={20} onClick={() => this.setState({popupInfo: busData})} />
+      </Marker>
+    );
+  }
+
   _onViewportChange = viewport => this.setState({viewport});
 
   render() {
@@ -88,6 +100,7 @@ export default class App extends Component {
         mapStyle={mapStyle}
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
+        {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) }
         <ControlPanel containerComponent={this.props.containerComponent} />
       </MapGL>
     );
