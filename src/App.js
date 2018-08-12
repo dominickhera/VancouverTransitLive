@@ -99,15 +99,10 @@ export default class App extends Component {
     // console.log("please help");
     return (
       // <Marker key = {i} longitude={coordinates[0]} latitude={coordinates[1]} >
-      // <Marker key = {i} longitude={parseInt(coordinates[0])} latitude={parseInt(coordinates[1])} >
-      //     <div className="bus"><span>{name}</span></div>
-      //     {/* <div>test pls work </div> */}
-      //  </Marker>
-
-      <Marker key={`marker-${index}`} longitude={coordinates[0]} latitude={coordinates[1]} >
-      <div>pls work</div>
-      {/* <CityPin size={20} onClick={() => this.setState({popupInfo: bus})} /> */}
-    </Marker>
+      <Marker key = {i} longitude={parseFloat(coordinates[0])} latitude={parseFloat(coordinates[1])} >
+          <div className="bus"><span>{name}</span></div>
+          {/* <div>test pls work </div> */}
+       </Marker>
      );
   }
 
