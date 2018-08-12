@@ -36,8 +36,7 @@ export default class App extends Component {
       pitch: 0,
       width: 500,
       height: 500
-    },
-    popupInfo: null
+    }
   };
 
   componentDidMount() {
@@ -89,15 +88,15 @@ export default class App extends Component {
     this.setState({mapStyle});
   }
 
-  _renderBusMarker = (bus, index) => {
-    return (
-      <Marker key={`marker-${index}`}
-        longitude={bus.longitude}
-        latitude={bus.latitude} >
-        <busPinStyle size={20} onClick={() => this.setState({popupInfo: bus})} />
-      </Marker>
-    );
-  }
+  // _renderBusMarker = (bus, index) => {
+  //   return (
+  //     <Marker key={`marker-${index}`}
+  //       longitude={bus.longitude}
+  //       latitude={bus.latitude} >
+  //       <busPinStyle size={20} onClick={() => this.setState({popupInfo: bus})} />
+  //     </Marker>
+  //   );
+  // }
 
 
   // _setBusPoint = (busData, index) => {
@@ -124,19 +123,19 @@ export default class App extends Component {
   //   );
   // }
 
-  _renderPopup() {
-    const {popupInfo} = this.state;
+  // _renderPopup() {
+  //   const {popupInfo} = this.state;
 
-    return popupInfo && (
-      <Popup tipSize={5}
-        anchor="top"
-        longitude={popupInfo.longitude}
-        latitude={popupInfo.latitude}
-        onClose={() => this.setState({popupInfo: null})} >
-        <busPinStyle info={popupInfo} />
-      </Popup>
-    );
-  }
+  //   return popupInfo && (
+  //     <Popup tipSize={5}
+  //       anchor="top"
+  //       longitude={popupInfo.longitude}
+  //       latitude={popupInfo.latitude}
+  //       onClose={() => this.setState({popupInfo: null})} >
+  //       <busPinStyle info={popupInfo} />
+  //     </Popup>
+  //   );
+  // }
 
   _onViewportChange = viewport => this.setState({viewport});
 
@@ -152,14 +151,7 @@ export default class App extends Component {
         mapboxApiAccessToken={MAPBOX_TOKEN} >
         {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
         {/* {this._renderBusInfoPopUp()} */}
-
-        { (JSON.parse(localStorage.getItem("busData"))).map(this._renderBusMarker) }
-
-        {this._renderPopup()}
-
-        <div className="nav" style={navStyle}>
-          <NavigationControl onViewportChange={this._updateViewport} />
-        </div>
+        
         <ControlPanel containerComponent={this.props.containerComponent} />
       </MapGL>
     );
