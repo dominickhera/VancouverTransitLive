@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MapGL from 'react-map-gl';
+import MapGL, {Marker} from 'react-map-gl';
 import {render} from 'react-dom';
 
 import logo from './logo.svg';
