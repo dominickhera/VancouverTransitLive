@@ -64,17 +64,17 @@ export default class ControlPanel extends PureComponent {
         .end((err, res) => {
             console.log(res.text);
             // this._xmlToJson(res.text);
-            console.log("update7");
+            console.log("update8");
             var parser = new DOMParser();
             var parsedObj = parser.parseFromString(res.text, "text/xml");
             // var jsonInstance = new X2JS();
             // var xmlText = res.text;
             // var jsonObj = jsonInstance.xml_str2json(xmlText);
             console.log(parsedObj);
-            console.log(parsedObj.getElementsByTagName("Bus").length);
-            // for(i=0; i < parsedObj.no; i++) {
-              // console.log("item " + i + " : " + parsedObj.getElementById("Bus")[i]);
-            // }
+            // console.log(parsedObj.getElementsByTagName("Bus").length);
+            for(i=0; i < parsedObj.getElementsByTagName("Bus").length; i++) {
+              console.log("item " + i + " : " + parsedObj.getElementById("Bus")[i]);
+            }
 
         });
   }
