@@ -42,7 +42,7 @@ export default class ControlPanel extends PureComponent {
       }
     }
     return obj;
-  };
+  }
 
   _grabTransitData = () => {
     // const request = require('superagent');
