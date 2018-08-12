@@ -78,15 +78,15 @@ export default class App extends Component {
     this.setState({mapStyle});
   }
 
-  _setBusPoint = (busData, index) => {
-    return (
-      <Marker key={`marker-${index}`}
-        longitude={busData.longitude}
-        latitude={busData.latitude} >
-        <busPinStyle size={20} onClick={() => this.setState({popupInfo: busData})} />
-      </Marker>
-    );
-  }
+  // _setBusPoint = (busData, index) => {
+  //   return (
+  //     <Marker key={`marker-${index}`}
+  //       longitude={busData.longitude}
+  //       latitude={busData.latitude} >
+  //       <busPinStyle size={20} onClick={() => this.setState({popupInfo: busData})} />
+  //     </Marker>
+  //   );
+  // }
 
   // _renderBusInfoPopUp() {
   //   const {popupInfo} = this.state;
@@ -115,7 +115,7 @@ export default class App extends Component {
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
         {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
-        {grabTransitData()}
+        {/* {this._renderBusInfoPopUp()} */}
         <ControlPanel containerComponent={this.props.containerComponent} />
       </MapGL>
     );
