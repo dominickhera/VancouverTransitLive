@@ -16,8 +16,8 @@ export function grabTransitData() {
            var busCount = parseInt(parsedObj.getElementsByTagName("Bus").length, 10);
            var busData = {};
            var busInfo = [];
-           var coordinates = [];
-           busInfo.coordinates = coordinates;
+          //  var coordinates = [];
+          //  busInfo.coordinates = coordinates;
            busData.busInfo = busInfo;
 
 
@@ -26,13 +26,15 @@ export function grabTransitData() {
               var busNumber = parsedObj.getElementsByTagName("Bus")[i].childNodes[0].textContent;
               var busLattitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[6].textContent;
               var busLongitude = parsedObj.getElementsByTagName("Bus")[i].childNodes[7].textContent;
-              var busCoordinates = {
-                "lattitude": parseFloat(busLattitude),
-                "longitude": parseFloat(busLongitude)
-              }
+              // var busCoordinates = {
+              //   "lattitude": parseFloat(busLattitude),
+              //   "longitude": parseFloat
+              // }
               var detailedBusInfo = {
                 "busNumber": busNumber,
-                "coordinates": busCoordinates,
+                // "coordinates": busCoordinates,
+                "lattitude": parseFloat(busLattitude),
+                "longitude": parseFloat(busLongitude)
               }
               busData.busInfo.push(detailedBusInfo);
             }
