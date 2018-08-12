@@ -111,7 +111,7 @@ export default class App extends Component {
         onViewportChange={this._onViewportChange}
         mapboxApiAccessToken={MAPBOX_TOKEN} >
         <style>{MARKER_STYLE}</style>
-        {bus.map(print)}
+        {console.log(bus)}
         {/* { bus.map(this._renderMarker) } */}
         {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
         {/* {this._renderBusInfoPopUp()} */}
