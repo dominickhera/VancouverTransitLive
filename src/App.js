@@ -5,21 +5,11 @@ import './App.css';
 
 
 import ControlPanel from './control-panel';
-import {defaultMapStyle, pointLayer} from './map-style.js';
-import {pointOnCircle} from './utils';
+import {defaultMapStyle} from './map-style.js';
 import {grabTransitData} from './dataGrab';
-import {fromJS} from 'immutable';
 import MARKER_STYLE from './marker-style';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZG9taW5pY2toZXJhIiwiYSI6ImNqa3B1M3h3bDAzM3kza2p0MGFnYnEycnYifQ.MKWHv7_xn40QRqLHPtn-hA'; // Set your mapbox token here
-
-let animation = null;
-const navStyle = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  padding: '10px'
-};
 
 export default class App extends Component {
 
@@ -43,13 +33,8 @@ export default class App extends Component {
     let tempVal = JSON.parse(localStorage.getItem('busData'));
   }
 
-  componentDidUpdate() {
-    { (JSON.parse(localStorage.getItem("busData")).busInfo).map(this._renderMarker) }
-  }
-
   componentWillUnmount() {
     window.removeEventListener('resize', this._resize);
-    // window.cancelAnimationFrame(animation);
   }
 
   _resize = () => {
@@ -66,34 +51,12 @@ export default class App extends Component {
     this.setState({viewport});
   }
 
-  // _animatePoint = () => {
-  //   // this._updatePointData(pointOnCircle({center: [-123, 49], angle: Date.now() / 1000, radius: 10}));
-  //   animation = window.requestAnimationFrame(this._animatePoint);
-  // // }
-
-  // _updatePointData = pointData => {
-  //   let {mapStyle} = this.state;
-  //   if (!mapStyle.hasIn(['source', 'point'])) {
-  //     mapStyle = mapStyle
-  //       // Add geojson source to map
-  //       .setIn(['sources', 'point'], fromJS({type: 'geojson'}))
-  //       // Add point layer to map
-  //       .set('layers', mapStyle.get('layers').push(pointLayer));
-  //   }
-  //   // Update data source
-  //   mapStyle = mapStyle.setIn(['sources', 'point', 'data'], pointData);
-
-  //   this.setState({mapStyle});
-  // }
-
   _renderMarker(bus, i) {
     const {name, destination, direction, coordinates} = bus;
     console.log(bus);
     return (
       <Marker key = {i} longitude={coordinates[1]} latitude={coordinates[0]} >
-      {/* <Marker key = {i} longitude={50} latitude={-50} > */}
           <div className="bus"><span>Bus #{name}, Destination: {destination}, Direction: {direction}</span></div>
-          {/* <div>test pls work </div> */}
        </Marker>
      );
   }
@@ -103,7 +66,6 @@ export default class App extends Component {
   render() {
 
     const {viewport, mapStyle} = this.state;
-    // const {bus} = (JSON.parse(localStorage.getItem("busData")));
     return (
       <MapGL
         {...viewport}
