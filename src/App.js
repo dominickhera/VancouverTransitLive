@@ -41,9 +41,10 @@ export default class App extends Component {
     this._resize();
     grabTransitData();
     let tempVal = JSON.parse(localStorage.getItem('busData'));
-    // console.log(localStorage.getItem('busData'));
-    // console.log(tempVal);
-    // animation = window.requestAnimationFrame(this._animatePoint);
+  }
+
+  componentDidUpdate() {
+    { (JSON.parse(localStorage.getItem("busData")).busInfo).map(this._renderMarker) }
   }
 
   componentWillUnmount() {
@@ -88,12 +89,6 @@ export default class App extends Component {
   _renderMarker(bus, i) {
     const {name, destination, direction, coordinates} = bus;
     console.log(bus);
-    // console.log(name);
-    // console.log(typeof(coordinates[0]));
-    // console.log(typeof(50));
-    // console.log(coordinates[1]);
-    // console.log(i);
-    // console.log("please help");
     return (
       <Marker key = {i} longitude={coordinates[1]} latitude={coordinates[0]} >
       {/* <Marker key = {i} longitude={50} latitude={-50} > */}
@@ -108,7 +103,7 @@ export default class App extends Component {
   render() {
 
     const {viewport, mapStyle} = this.state;
-    const {bus} = (JSON.parse(localStorage.getItem("busData")));
+    // const {bus} = (JSON.parse(localStorage.getItem("busData")));
     return (
       <MapGL
         {...viewport}
@@ -117,30 +112,9 @@ export default class App extends Component {
         mapboxApiAccessToken={MAPBOX_TOKEN} >
         <style>{MARKER_STYLE}</style>
         { (JSON.parse(localStorage.getItem("busData")).busInfo).map(this._renderMarker) }
-        {/* { bus.map(this._renderMarker) } */}
-        {/* {JSON.parse(localStorage.getItem("busData")).map(this._setBusPoint) } */}
-        {/* {this._renderBusInfoPopUp()} */}
-        
         <ControlPanel containerComponent={this.props.containerComponent} />
       </MapGL>
     );
   }
 
 }
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
