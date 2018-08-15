@@ -1,0 +1,277 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 457,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 30,
+      "column": 2
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 457,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 30,
+        "column": 2
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ExportDefaultDeclaration",
+        "start": 0,
+        "end": 457,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 30,
+            "column": 2
+          }
+        },
+        "declaration": {
+          "type": "TemplateLiteral",
+          "start": 15,
+          "end": 456,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 15
+            },
+            "end": {
+              "line": 30,
+              "column": 1
+            }
+          },
+          "expressions": [],
+          "quasis": [
+            {
+              "type": "TemplateElement",
+              "start": 16,
+              "end": 455,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 16
+                },
+                "end": {
+                  "line": 30,
+                  "column": 0
+                }
+              },
+              "value": {
+                "raw": "\n.bus:before {\n  content: ' ';\n  display: inline-block;\n  width: 8px;\n  height: 8px;\n  background: red;\n  border-radius: 8px;\n  margin: 0 8px;\n}\n.bus {\n  border-radius: 20px;\n  padding-right: 12px;\n  margin: -12px;\n  color: transparent;\n  line-height: 24px;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.bus span {\n  display: none;\n}\n.bus:hover {\n  background: rgba(0,0,0,0.8);\n  color: #fff;\n}\n.bus:hover span {\n  display: inline-block;\n}\n",
+                "cooked": "\n.bus:before {\n  content: ' ';\n  display: inline-block;\n  width: 8px;\n  height: 8px;\n  background: red;\n  border-radius: 8px;\n  margin: 0 8px;\n}\n.bus {\n  border-radius: 20px;\n  padding-right: 12px;\n  margin: -12px;\n  color: transparent;\n  line-height: 24px;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.bus span {\n  display: none;\n}\n.bus:hover {\n  background: rgba(0,0,0,0.8);\n  color: #fff;\n}\n.bus:hover span {\n  display: inline-block;\n}\n"
+              },
+              "tail": true
+            }
+          ],
+          "leadingComments": [],
+          "trailingComments": []
+        }
+      }
+    ],
+    "directives": []
+  },
+  "comments": [],
+  "tokens": [
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 0,
+      "end": 6,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "default",
+        "keyword": "default",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "default",
+      "start": 7,
+      "end": 14,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 7
+        },
+        "end": {
+          "line": 1,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "`",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 15,
+      "end": 16,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 15
+        },
+        "end": {
+          "line": 1,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "template",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "\n.bus:before {\n  content: ' ';\n  display: inline-block;\n  width: 8px;\n  height: 8px;\n  background: red;\n  border-radius: 8px;\n  margin: 0 8px;\n}\n.bus {\n  border-radius: 20px;\n  padding-right: 12px;\n  margin: -12px;\n  color: transparent;\n  line-height: 24px;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.bus span {\n  display: none;\n}\n.bus:hover {\n  background: rgba(0,0,0,0.8);\n  color: #fff;\n}\n.bus:hover span {\n  display: inline-block;\n}\n",
+      "start": 16,
+      "end": 455,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 16
+        },
+        "end": {
+          "line": 30,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "`",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 455,
+      "end": 456,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 1
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 456,
+      "end": 457,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 1
+        },
+        "end": {
+          "line": 30,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 457,
+      "end": 457,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 2
+        },
+        "end": {
+          "line": 30,
+          "column": 2
+        }
+      }
+    }
+  ]
+}
