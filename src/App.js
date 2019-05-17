@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import MapGL, {Marker} from 'react-map-gl';
 import './App.css';
 
-import ControlPanel from './control-panel';
+import ControlPanel from './components/control-panel';
 import {defaultMapStyle} from './map-style.js';
 import {grabTransitData} from './dataGrab';
 import MARKER_STYLE from './marker-style';
