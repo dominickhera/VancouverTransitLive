@@ -18,7 +18,7 @@
     "superagent": "^3.8.3",
     "superagent-no-cache": "^0.1.1",
     "viewport-mercator-project": "^5.2.0",
-    "x2js": "^3.2.1"
+    "x2js": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
